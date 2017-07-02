@@ -1,0 +1,66 @@
+
+
+Starting the sudo service 
+
+--> Sudo service mysqld-start 
+
+starting the mysql with user root
+mysql -u root
+
+--/.creation of Emp database
+
+Create DATABASE EMP;
+
+--use of Data base
+
+Use EMP;
+
+//creation of Employee Table
+<mysql>CREATE TABLE EMPLOYEE (EID NUMBER,ENAME VARCHAR(40));
+
+//INSERT INTO EMPLOYEE TABLE ENTRIES 
+
+INSERT INTO EMPLOYEE VALUE(101,'ARJUN');
+INSERT INTO EMPLOYEE VALUE(102,'AJAY);
+INSERT INTO EMPLOYEE VALUE(1O3,'KIRAN');
+INSERT INTO EMPLOYEE VALUE(104,'RAHUL');
+INSERT INTO EMPLOYEE VALUE(105,'BARATH');
+INSERT INTO EMPLOYEE VALUE(106,'DHONI');
+INSERT INTO EMPLOYEE VALUE(107,'MOHAN');
+INSERT INTO EMPLOYEE VALUE(108,'VIJAY');
+
+
+DISPLAYING THE DATA OF THE EMPLOYEE TABLE
+
+
+SELECT * FROM EMPLOYEE ;
+********************************************************************************************************************************
+
+EID ---------------------------ENAME
+101                            ARJUN
+102                            AJAY
+103                            KIRAN
+104                            RAHUL
+105                            BARATH
+106                            DHONI
+107                            MOHAN
+108                            VIJAY
+
+**********************************************************************************************************************************
+
+
+IMPORTING INTO HIVE 
+
+sqoop import --connect jdbc:mysql://localhost:3306/EMP 
+--username root 
+
+--split-by id 
+--columns id,name 
+--table customer  
+--target-dir /user/acadgild/output
+--fields-terminated-by "," 
+--hive-import 
+--create-hive-table 
+--hive-table sqoop_workspace.EMPLOYEE
+--incrimental-append by id ;
+
